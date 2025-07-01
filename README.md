@@ -21,4 +21,8 @@ A modern checkout payment interface with form validation and card processing sim
 
 ## 🖥️ Demo Preview
 
-<iframe src="https://embed.screenapp.io/app/#/shared/c5VGpeToX_?embed=true" width="100%" height="960" frameborder="0" allowfullscreen></iframe>
+<video width="100%" controls>
+  <source src="https://embed.screenapp.io/app/#/shared/c5VGpeToX_?embed=true" type="video/mp4">
+  Demo video
+</video>
+
