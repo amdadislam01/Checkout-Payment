@@ -21,5 +21,4 @@ A modern checkout payment interface with form validation and card processing sim
 
 ## 🖥️ Demo Preview
 
-https://github.com/amdadislam01/Checkout-Payment/assets/12345678/demo.mp4  
-*(Replace with your actual demo video or GIF)*
+<iframe src="https://embed.screenapp.io/app/#/shared/c5VGpeToX_?embed=true" width="100%" height="960" frameborder="0" allowfullscreen></iframe>
