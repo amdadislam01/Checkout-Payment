@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Product</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.freepik.com/512/8354/8354634.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyan: {
+                            100: '#E0F7FA',
+                            200: '#B2EBF2',
+                            300: '#80DEEA',
+                            400: '#4DD0E1',
+                            500: '#26C6DA',
+                            600: '#00BCD4',
+                            700: '#00ACC1',
+                            800: '#0097A7',
+                            900: '#00838F',
+                        },
+                        bKash: '#E2136E'
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'fade-in': 'fadeIn 0.5s ease-in forwards',
+                        'slide-up': 'slideUp 0.5s ease-out forwards'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .bKash-btn {
+            background-color: #E2136E;
+            color: white;
+        }
+
+        .bKash-btn:hover {
+            background-color: #C01160;
+        }
+
+        .bKash-text {
+            color: #E2136E;
+        }
+
+        .bKash-bg {
+            background-color: #FCE4ED;
+        }
+
+        .bKash-border {
+            border-color: #E2136E;
+        }
+    </style>
+</head>
+
+<body class="bg-cyan-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 md:p-8 transition-all duration-300 hover:shadow-xl">
+        <!-- Header with animation -->
+        <div class="animate-slide-up">
+            <h2 class="text-3xl font-bold text-cyan-800 text-center">Checkout</h2>
+            <p class="text-cyan-600 text-center mt-1">Select products and complete your purchase</p>
+        </div>
+
+        <!-- Product Selection Section -->
+        <div class="mt-6 animate-fade-in">
+            <h3 class="text-lg font-semibold text-cyan-800 mb-4 flex items-center">
+                <i class="fas fa-box-open mr-2 text-cyan-600"></i> Available Products
+            </h3>
+
+            <div class="space-y-4" id="productList">
+                <!-- Product 1 -->
+                <div class="flex items-center justify-between p-4 border border-cyan-100 rounded-lg product-item hover:bg-cyan-50 transition-all duration-200"
+                    data-id="1" data-price="149.99">
+                    <div class="flex items-center space-x-4">
+                        <input type="checkbox"
+                            class="product-checkbox h-5 w-5 text-cyan-600 rounded-full focus:ring-cyan-500 border-cyan-300 cursor-pointer transition-all">
+                        <img src="https://m.media-amazon.com/images/I/61zA+7zAxrL._UF1000,1000_QL80_.jpg"
+                            alt="Headphones" class="w-16 h-16 rounded-lg shadow object-cover float-animation">
+                        <div>
+                            <h4 class="font-medium text-cyan-800">Wireless Headphones</h4>
+                            <p class="text-sm text-cyan-600">Noise Cancelling, Bluetooth 5.0</p>
+                            <p class="text-sm font-medium text-cyan-500">$149.99</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 quantity-control hidden">
+                        <button
+                            class="quantity-minus w-8 h-8 rounded-full bg-cyan-100 hover:bg-cyan-200 text-cyan-700 flex items-center justify-center transition-colors">
+                            <i class="fas fa-minus text-xs"></i>
+                        </button>
+                        <span class="quantity w-8 text-center">1</span>
+                        <button
+                            class="quantity-plus w-8 h-8 rounded-full bg-cyan-100 hover:bg-cyan-200 text-cyan-700 flex items-center justify-center transition-colors">
+                            <i class="fas fa-plus text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="flex items-center justify-between p-4 border border-cyan-100 rounded-lg product-item hover:bg-cyan-50 transition-all duration-200"
+                    data-id="2" data-price="89.99">
+                    <div class="flex items-center space-x-4">
+                        <input type="checkbox"
+                            class="product-checkbox h-5 w-5 text-cyan-600 rounded-full focus:ring-cyan-500 border-cyan-300 cursor-pointer transition-all">
+                        <img src="https://istarmax.com/wp-content/uploads/2024/04/Starmax-Product-Range-Summer-2024-2.png"
+                            alt="Smartwatch" class="w-16 h-16 rounded-lg shadow object-cover float-animation">
+                        <div>
+                            <h4 class="font-medium text-cyan-800">Smart Watch</h4>
+                            <p class="text-sm text-cyan-600">Fitness Tracker, Heart Rate Monitor</p>
+                            <p class="text-sm font-medium text-cyan-500">$89.99</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 quantity-control hidden">
+                        <button
+                            class="quantity-minus w-8 h-8 rounded-full bg-cyan-100 hover:bg-cyan-200 text-cyan-700 flex items-center justify-center transition-colors">
+                            <i class="fas fa-minus text-xs"></i>
+                        </button>
+                        <span class="quantity w-8 text-center">1</span>
+                        <button
+                            class="quantity-plus w-8 h-8 rounded-full bg-cyan-100 hover:bg-cyan-200 text-cyan-700 flex items-center justify-center transition-colors">
+                            <i class="fas fa-plus text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="flex items-center justify-between p-4 border border-cyan-100 rounded-lg product-item hover:bg-cyan-50 transition-all duration-200"
+                    data-id="3" data-price="249.99">
+                    <div class="flex items-center space-x-4">
+                        <input type="checkbox"
+                            class="product-checkbox h-5 w-5 text-cyan-600 rounded-full focus:ring-cyan-500 border-cyan-300 cursor-pointer transition-all">
+                        <img src="https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/nvidia_geforce_gtx_max_q_laptops_ogimage.jpg"
+                            alt="Laptop" class="w-16 h-16 rounded-lg shadow object-cover float-animation">
+                        <div>
+                            <h4 class="font-medium text-cyan-800">Ultrabook Laptop</h4>
+                            <p class="text-sm text-cyan-600">13.3" FHD, 16GB RAM, 512GB SSD</p>
+                            <p class="text-sm font-medium text-cyan-500">$249.99</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 quantity-control hidden">
+                        <button
+                            class="quantity-minus w-8 h-8 rounded-full bg-cyan-100 hover:bg-cyan-200 text-cyan-700 flex items-center justify-center transition-colors">
+                            <i class="fas fa-minus text-xs"></i>
+                        </button>
+                        <span class="quantity w-8 text-center">1</span>
+                        <button
+                            class="quantity-plus w-8 h-8 rounded-full bg-cyan-100 hover:bg-cyan-200 text-cyan-700 flex items-center justify-center transition-colors">
+                            <i class="fas fa-plus text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkout Section (initially hidden) -->
+        <div id="checkoutSection" class="mt-6 hidden animate-slide-up">
+            <h3 class="text-lg font-semibold text-cyan-800 mb-4 flex items-center">
+                <i class="fas fa-shopping-cart mr-2 text-cyan-600"></i> Selected Products
+            </h3>
+            <div id="selectedProducts" class="space-y-3 mb-6"></div>
+
+            <!-- Price Breakdown -->
+            <div class="mt-6 space-y-3 border-t border-cyan-100 pt-4">
+                <div class="flex justify-between text-cyan-700">
+                    <span>Subtotal</span>
+                    <span>$<span id="subtotal">0.00</span></span>
+                </div>
+                <div class="flex justify-between text-cyan-700">
+                    <span>Shipping</span>
+                    <span class="text-green-500">Free</span>
+                </div>
+                <div class="flex justify-between font-semibold text-cyan-800 text-lg border-t border-cyan-100 pt-2">
+                    <span>Total</span>
+                    <span class="text-cyan-600">$<span id="total">0.00</span></span>
+                </div>
+            </div>
+
+            <!-- Payment Form -->
+            <form id="checkoutForm" class="mt-6 space-y-4">
+                <!-- Payment Options -->
+                <div class="mt-4">
+                    <label class="block text-cyan-700 font-medium mb-2 flex items-center">
+                        <i class="fas fa-credit-card mr-2"></i> Payment Method
+                    </label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button type="button"
+                            class="flex-1 bg-cyan-100 hover:bg-cyan-200 transition p-3 rounded-lg payment-method group"
+                            data-method="card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                                alt="Mastercard" class="h-10 mx-auto group-[.active]:scale-110 transition-transform">
+                        </button>
+                        <button type="button"
+                            class="flex-1 bg-cyan-100 hover:bg-cyan-200 transition p-3 rounded-lg payment-method group"
+                            data-method="card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa"
+                                class="h-10 mx-auto group-[.active]:scale-110 transition-transform">
+                        </button>
+                        <button type="button"
+                            class="flex-1 bg-cyan-100 hover:bg-cyan-200 transition p-3 rounded-lg payment-method active group"
+                            data-method="paypal">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal"
+                                class="h-6 mx-auto group-[.active]:scale-110 transition-transform">
+                        </button>
+                        <button type="button"
+                            class="flex-1 bKash-btn hover:bg-bKash transition p-3 rounded-lg payment-method group"
+                            data-method="bkash">
+                            <div class="flex flex-col items-center">
+                                <img src="https://freelogopng.com/images/all_img/1656235602bkash-logo-black.png"
+                                    alt="bKash" class="h-10 mx-auto group-[.active]:scale-110 transition-transform">
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card Details (hidden when PayPal/bKash is selected) -->
+                <div id="cardDetails" class="hidden">
+                    <div class="mt-4 grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="cardNumber" class="block text-cyan-700 font-medium mb-1">Card Number</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456"
+                                class="w-full px-3 py-2 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500">
+                        </div>
+                        <div>
+                            <label for="expiryDate" class="block text-cyan-700 font-medium mb-1">Expiry Date</label>
+                            <input type="text" id="expiryDate" placeholder="MM/YY"
+                                class="w-full px-3 py-2 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500">
+                        </div>
+                        <div>
+                            <label for="cvv" class="block text-cyan-700 font-medium mb-1">CVV</label>
+                            <input type="text" id="cvv" placeholder="123"
+                                class="w-full px-3 py-2 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500">
+                        </div>
+                        <div>
+                            <label for="nameOnCard" class="block text-cyan-700 font-medium mb-1">Name on Card</label>
+                            <input type="text" id="nameOnCard" placeholder="Name as on card"
+                                class="w-full px-3 py-2 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PayPal Email (shown when PayPal is selected) -->
+                <div id="paypalEmail" class="hidden">
+                    <label for="paypalEmailInput" class="block text-cyan-700 font-medium mb-1">PayPal Email</label>
+                    <input type="email" id="paypalEmailInput" placeholder="your@email.com"
+                        class="w-full px-3 py-2 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500">
+                </div>
+
+                <!-- bKash Payment Instructions (shown when bKash is selected) -->
+                <div id="bkashInstructions" class="hidden p-4 bKash-bg rounded-lg border bKash-border">
+                    <div class="flex items-start">
+                        <img src="https://www.logoshape.com/wp-content/uploads/2025/02/Bkash_vector_logo.png"
+                            alt="bKash" class="h-6 mr-2">
+                        <div>
+                            <h4 class="font-medium bKash-text mb-1">Pay with bKash</h4>
+                            <p class="text-sm bKash-text">Send payment to our bKash merchant number: <span
+                                    class="font-bold">017XXXXXXXX</span></p>
+                            <p class="text-sm bKash-text mt-2">Include this reference in your payment: <span
+                                    class="font-bold" id="bkashReference">ORD${Math.floor(1000 + Math.random() *
+                                    9000)}</span></p>
+                            <div class="mt-3">
+                                <label for="bkashNumber" class="block text-sm bKash-text font-medium mb-1">Your bKash
+                                    Number</label>
+                                <input type="text" id="bkashNumber" placeholder="01XXXXXXXXX"
+                                    class="w-full px-3 py-2 rounded-lg border bKash-border focus:ring-2 focus:ring-bKash focus:border-bKash">
+                            </div>
+                            <div class="mt-2">
+                                <label for="bkashTrxId" class="block text-sm bKash-text font-medium mb-1">Transaction
+                                    ID</label>
+                                <input type="text" id="bkashTrxId" placeholder="TRX123456789"
+                                    class="w-full px-3 py-2 rounded-lg border bKash-border focus:ring-2 focus:ring-bKash focus:border-bKash">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Billing Address -->
+                <div class="mt-4">
+                    <label class="block text-cyan-700 font-medium mb-1 flex items-center">
+                        <i class="fas fa-map-marker-alt mr-2"></i> Billing Address
+                    </label>
+                    <input type="text" id="address" placeholder="Street Address"
+                        class="w-full px-3 py-2 border border-cyan-200 rounded-lg mb-2 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" id="city" placeholder="City"
+                            class="px-3 py-2 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500">
+                        <input type="text" id="zip" placeholder="ZIP Code"
+                            class="px-3 py-2 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500">
+                    </div>
+                    <select id="country"
+                        class="w-full mt-2 px-3 py-2 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500">
+                        <option value="">Select Country</option>
+                        <option value="BD">Bangladesh</option>
+                        <option value="US">United States</option>
+                        <option value="UK">United Kingdom</option>
+                    </select>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="flex items-center mt-4">
+                    <input type="checkbox" id="terms"
+                        class="h-4 w-4 text-cyan-600 focus:ring-cyan-500 border-cyan-300 rounded">
+                    <label for="terms" class="ml-2 block text-sm text-cyan-700">
+                        I agree to the <a href="#" class="text-cyan-600 hover:underline">Terms and Conditions</a>
+                    </label>
+                </div>
+
+                <!-- Checkout Button -->
+                <button type="submit" id="checkoutButton"
+                    class="mt-6 w-full bg-cyan-600 hover:bg-cyan-700 text-white font-medium py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02]">
+                    <span id="buttonText">Complete Payment</span>
+                    <i id="spinner" class="fas fa-spinner fa-spin ml-2 hidden"></i>
+                </button>
+
+                <!-- Secure Payment Notice -->
+                <p class="text-center text-cyan-600 text-sm mt-4">
+                    <i class="fas fa-lock animate-pulse-slow"></i> Secure Payment. Your information is encrypted.
+                </p>
+            </form>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="successModal"
+            class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+            <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 text-center animate-fade-in">
+                <div
+                    class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce-slow">
+                    <i class="fas fa-check text-cyan-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-cyan-800 mb-2">Order Placed Successfully!</h3>
+                <p class="text-cyan-600 mb-4">Your order has been confirmed. We've sent details to your email.</p>
+                <div id="orderSummary" class="text-left mb-6 text-sm text-cyan-700"></div>
+                <button id="closeModal"
+                    class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-medium py-2 rounded-lg transition-colors duration-300">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+        <div class="text-sm text-cyan-300 mb-4 mt-3 text-center md:mb-0">
+            <p class="text-sm">
+                Made with ❤️ by <span class="font-medium text-neon-purple">Amdad Islam Eshan</span>
+            </p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
