@@ -1,4 +1,4 @@
-# 💳 Checkout Payment System
+# 💳 Checkout Payment Syste
 
 [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-6772E5?style=for-the-badge&logo=stripe&logoColor=white)](https://amdadislam01.github.io/Checkout-Payment/)
 [![GitHub Repo](https://img.shields.io/badge/💻_Source_Code-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/amdadislam01/Checkout-Payment)
